@@ -14,13 +14,13 @@ using RabbitMQ.Client.Events;
 
 namespace EmpTracker.EmpService.Infrastructure.Messaging
 {
-    public class MessagePublisher : IMessagePublisher, IDisposable
+    public class MessageBus : IMessageBus, IDisposable
     {
         private readonly IConnection _connection;
         private readonly IChannel _channel;
         private string _consumerTag = string.Empty;
 
-        public MessagePublisher(IConfiguration configuration)
+        public MessageBus(IConfiguration configuration)
         {
             var factory = new ConnectionFactory
             {

@@ -11,9 +11,9 @@ namespace EmpTracker.EmpService.Api.Controllers
     [ApiVersion("1.0")]
     [ApiController]
     [Route("api/v{version:apiVersion}/messages")]
-    public class MessageController(IMessagePublisher messageBus) : ControllerBase
+    public class MessageController(IMessageBus messageBus) : ControllerBase
     {
-        private readonly IMessagePublisher _messageBus = messageBus;
+        private readonly IMessageBus _messageBus = messageBus;
 
         [HttpPost("publish")]
         public async Task<IActionResult> PublishMessage([FromBody] EmployeeMessage message)
